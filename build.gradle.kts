@@ -182,27 +182,27 @@ kotlin {
 
     val xcf = XCFramework()
 
-    listOf(
-        /* App Store */
-        iosArm64(),
-        /* Apple Silicon iOS Simulator */
-        iosSimulatorArm64(),
-        /* macOS Devices */
-        macosX64(),
-        macosArm64()
-    ).forEach {
-
-        it.binaries.executable(setOf(NativeBuildType.RELEASE)) {
-            baseName = "xmpcore"
-            entryPoint = "com.ashampoo.xmp.main"
-        }
-
-        it.binaries.framework(setOf(NativeBuildType.RELEASE)) {
-            baseName = "xmpcore"
-            /* Part of the XCFramework */
-            xcf.add(this)
-        }
-    }
+//    listOf(
+//        /* App Store */
+//        iosArm64(),
+//        /* Apple Silicon iOS Simulator */
+//        iosSimulatorArm64(),
+//        /* macOS Devices */
+//        macosX64(),
+//        macosArm64()
+//    ).forEach {
+//
+//        it.binaries.executable(setOf(NativeBuildType.RELEASE)) {
+//            baseName = "xmpcore"
+//            entryPoint = "com.ashampoo.xmp.main"
+//        }
+//
+//        it.binaries.framework(setOf(NativeBuildType.RELEASE)) {
+//            baseName = "xmpcore"
+//            /* Part of the XCFramework */
+//            xcf.add(this)
+//        }
+//    }
 
     val jvmMain by sourceSets.getting
 
@@ -220,22 +220,22 @@ kotlin {
         dependsOn(posixMain)
     }
 
-    val iosArm64Main by sourceSets.getting
-    val iosSimulatorArm64Main by sourceSets.getting
-    val macosX64Main by sourceSets.getting
-    val macosArm64Main by sourceSets.getting
+//    val iosArm64Main by sourceSets.getting
+//    val iosSimulatorArm64Main by sourceSets.getting
+//    val macosX64Main by sourceSets.getting
+//    val macosArm64Main by sourceSets.getting
 
-    @Suppress("UnusedPrivateMember", "UNUSED_VARIABLE") // False positive
-    val appleMain by sourceSets.creating {
-
-        dependsOn(commonMain)
-        dependsOn(posixMain)
-
-        iosArm64Main.dependsOn(this)
-        iosSimulatorArm64Main.dependsOn(this)
-        macosX64Main.dependsOn(this)
-        macosArm64Main.dependsOn(this)
-    }
+//    @Suppress("UnusedPrivateMember", "UNUSED_VARIABLE") // False positive
+//    val appleMain by sourceSets.creating {
+//
+//        dependsOn(commonMain)
+//        dependsOn(posixMain)
+//
+//        iosArm64Main.dependsOn(this)
+//        iosSimulatorArm64Main.dependsOn(this)
+//        macosX64Main.dependsOn(this)
+//        macosArm64Main.dependsOn(this)
+//    }
 }
 
 // region Writing version.txt for GitHub Actions
@@ -300,37 +300,37 @@ afterEvaluate {
 
         val signJvmPublication by tasks.getting
         val signAndroidReleasePublication by tasks.getting
-        val signIosArm64Publication by tasks.getting
-        val signIosSimulatorArm64Publication by tasks.getting
-        val signMacosArm64Publication by tasks.getting
-        val signMacosX64Publication by tasks.getting
+//        val signIosArm64Publication by tasks.getting
+//        val signIosSimulatorArm64Publication by tasks.getting
+//        val signMacosArm64Publication by tasks.getting
+//        val signMacosX64Publication by tasks.getting
         val signWinPublication by tasks.getting
         val signKotlinMultiplatformPublication by tasks.getting
 
         val publishJvmPublicationToSonatypeRepository by tasks.getting
         val publishAndroidReleasePublicationToSonatypeRepository by tasks.getting
-        val publishIosArm64PublicationToSonatypeRepository by tasks.getting
-        val publishIosSimulatorArm64PublicationToSonatypeRepository by tasks.getting
-        val publishMacosArm64PublicationToSonatypeRepository by tasks.getting
-        val publishMacosX64PublicationToSonatypeRepository by tasks.getting
+//        val publishIosArm64PublicationToSonatypeRepository by tasks.getting
+//        val publishIosSimulatorArm64PublicationToSonatypeRepository by tasks.getting
+//        val publishMacosArm64PublicationToSonatypeRepository by tasks.getting
+//        val publishMacosX64PublicationToSonatypeRepository by tasks.getting
         val publishWinPublicationToSonatypeRepository by tasks.getting
         val publishKotlinMultiplatformPublicationToSonatypeRepository by tasks.getting
         val publishAllPublicationsToSonatypeRepository by tasks.getting
 
         val signTasks = listOf(
             signJvmPublication, signAndroidReleasePublication,
-            signIosArm64Publication, signIosSimulatorArm64Publication,
-            signMacosArm64Publication, signMacosX64Publication,
+//            signIosArm64Publication, signIosSimulatorArm64Publication,
+//            signMacosArm64Publication, signMacosX64Publication,
             signWinPublication, signKotlinMultiplatformPublication
         )
 
         val publishTasks = listOf(
             publishJvmPublicationToSonatypeRepository,
             publishAndroidReleasePublicationToSonatypeRepository,
-            publishIosArm64PublicationToSonatypeRepository,
-            publishIosSimulatorArm64PublicationToSonatypeRepository,
-            publishMacosArm64PublicationToSonatypeRepository,
-            publishMacosX64PublicationToSonatypeRepository,
+//            publishIosArm64PublicationToSonatypeRepository,
+//            publishIosSimulatorArm64PublicationToSonatypeRepository,
+//            publishMacosArm64PublicationToSonatypeRepository,
+//            publishMacosX64PublicationToSonatypeRepository,
             publishWinPublicationToSonatypeRepository,
             publishKotlinMultiplatformPublicationToSonatypeRepository,
             publishAllPublicationsToSonatypeRepository
