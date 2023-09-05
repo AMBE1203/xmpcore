@@ -153,8 +153,8 @@ kotlin {
             api("io.ktor:ktor-io:$ktorVersion")
 
             /* Needed to parse XML and create a DOM Document */
-            api("io.github.pdvrieze.xmlutil:core:$xmlUtilVersion")
-            api("io.github.pdvrieze.xmlutil:serialization:$xmlUtilVersion")
+            api("io.github.pdvrieze.xmlutil:core-android:$xmlUtilVersion")
+            api("io.github.pdvrieze.xmlutil:serialization-android:$xmlUtilVersion")
         }
     }
 
